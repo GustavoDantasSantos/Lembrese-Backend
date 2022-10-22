@@ -10,3 +10,9 @@ export const AppDataSource = new DataSource({
     migrations: ["src/database/migrations/*.ts"],
     entities: ["src/api/**/entity/*.ts"],
 });
+
+AppDataSource.initialize().then(() => {
+    console.log('Conectado com o db');
+}).catch((err) => {
+    console.log(err);
+});
